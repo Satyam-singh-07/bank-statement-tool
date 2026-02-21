@@ -33,6 +33,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
             return view('admin.dashboard');
         })->name('dashboard');
 
+        Route::get('/new-statement', function () {
+            return view('admin.statement');
+        })->name('statement');
+
         Route::post('/logout', [AdminAuthController::class, 'logout'])
             ->name('logout');
     });
