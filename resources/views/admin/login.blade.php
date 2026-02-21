@@ -23,15 +23,16 @@
             --gold-bright: #d4af37;
             --gold-soft: #e6c473;
             --gold-deep: #b88b1f;
-            --white-soft: #f5f7fa;
-            --text-light: #eef2f6;
-            --text-muted: #b0c0d0;
+            --white-soft: #ffffff;
+            --text-dark: #0a1928;
+            --text-muted: #4a5a6e;
+            --bg-light: #f8fafd;
             --error-red: #b33a3a;
         }
 
         body {
-            background-color: var(--navy-dark);
-            color: var(--text-light);
+            background-color: var(--white-soft);
+            color: var(--text-dark);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -45,13 +46,13 @@
         .login-container {
             width: 100%;
             max-width: 460px;
-            background: rgba(10, 25, 40, 0.75);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(212, 175, 55, 0.25);
+            border: 1px solid rgba(212, 175, 55, 0.3);
             border-radius: 48px;
             padding: 2.8rem 2.2rem 3rem;
-            box-shadow: 0 40px 60px -20px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(212, 175, 55, 0.15) inset;
+            box-shadow: 0 40px 60px -20px rgba(10, 25, 40, 0.2), 0 0 0 1px rgba(212, 175, 55, 0.2) inset;
         }
 
         /* header with gold/navy branding */
@@ -68,19 +69,19 @@
 
         .priyal {
             color: var(--gold-bright);
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
         }
 
         .finance-txt {
-            color: var(--white-soft);
+            color: var(--navy-dark);
             font-weight: 300;
         }
 
         .admin-badge {
             display: inline-block;
-            background: rgba(212, 175, 55, 0.12);
+            background: rgba(212, 175, 55, 0.1);
             border: 1px solid rgba(212, 175, 55, 0.4);
-            color: var(--gold-soft);
+            color: var(--navy-dark);
             font-weight: 600;
             font-size: 0.85rem;
             padding: 0.4rem 1.4rem;
@@ -97,7 +98,7 @@
 
         /* access key indicator (admin only hint) */
         .role-tag {
-            background: rgba(30, 58, 90, 0.7);
+            background: var(--bg-light);
             border-left: 4px solid var(--gold-bright);
             padding: 1rem 1.4rem;
             border-radius: 30px;
@@ -128,7 +129,7 @@
         .input-group label {
             display: block;
             margin-bottom: 0.6rem;
-            color: var(--gold-soft);
+            color: var(--navy-dark);
             font-weight: 500;
             font-size: 0.95rem;
             letter-spacing: 0.3px;
@@ -137,7 +138,7 @@
         .input-wrapper {
             display: flex;
             align-items: center;
-            background: transparent;
+            background: var(--bg-light);
             border: 1px solid rgba(212, 175, 55, 0.3);
             border-radius: 44px;
             padding: 0.3rem 1.5rem 0.3rem 1.2rem;
@@ -147,7 +148,7 @@
         .input-wrapper:hover,
         .input-wrapper:focus-within {
             border-color: var(--gold-bright);
-            background: rgba(30, 58, 90, 0.6);
+            background: white;
             box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
         }
 
@@ -163,13 +164,13 @@
             background: transparent;
             border: none;
             padding: 1rem 0.5rem 1rem 0;
-            color: var(--text-light);
+            color: var(--navy-dark);
             font-size: 1.1rem;
             outline: none;
         }
 
         .input-wrapper input::placeholder {
-            color: #6f85a0;
+            color: #9aabbb;
             font-weight: 300;
             font-size: 1rem;
         }
@@ -180,7 +181,7 @@
         }
 
         .admin-code .input-wrapper {
-            background: rgba(10, 20, 30, 0.9);
+            background: var(--bg-light);
             border-color: rgba(212, 175, 55, 0.5);
         }
 
@@ -222,7 +223,7 @@
         }
 
         .forgot-link:hover {
-            color: var(--gold-soft);
+            color: var(--gold-deep);
             border-bottom-style: solid;
         }
 
@@ -242,7 +243,7 @@
             gap: 12px;
             cursor: pointer;
             transition: all 0.2s;
-            box-shadow: 0 14px 28px -12px rgba(212, 175, 55, 0.5);
+            box-shadow: 0 14px 28px -12px rgba(212, 175, 55, 0.4);
             border: 1px solid var(--gold-bright);
             margin-top: 0.5rem;
         }
@@ -265,12 +266,12 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            background: rgba(0, 0, 0, 0.3);
+            background: var(--bg-light);
             padding: 0.8rem 1.2rem;
             border-radius: 60px;
             font-size: 0.85rem;
             color: var(--text-muted);
-            border: 1px solid rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.2);
         }
 
         .security-note i {
@@ -279,7 +280,7 @@
         }
 
         .security-note span {
-            color: var(--gold-soft);
+            color: var(--navy-dark);
             font-weight: 500;
         }
 
@@ -332,8 +333,8 @@
 
         /* FORCE input styling */
         .input-wrapper input {
-            background-color: var(--navy-dark) !important;
-            color: #ffffff !important;
+            background-color: transparent !important;
+            color: var(--navy-dark) !important;
             border: none !important;
         }
 
@@ -342,9 +343,17 @@
         input:-webkit-autofill:hover,
         input:-webkit-autofill:focus,
         input:-webkit-autofill:active {
-            -webkit-box-shadow: 0 0 0 1000px var(--navy-dark) inset !important;
-            -webkit-text-fill-color: #ffffff !important;
+            -webkit-box-shadow: 0 0 0 1000px var(--bg-light) inset !important;
+            -webkit-text-fill-color: var(--navy-dark) !important;
             transition: background-color 5000s ease-in-out 0s;
+        }
+
+        .text-danger {
+            color: var(--error-red);
+            font-size: 0.85rem;
+            margin-top: 0.3rem;
+            display: block;
+            margin-left: 1rem;
         }
     </style>
 </head>
@@ -360,12 +369,6 @@
                 <i class="fas fa-shield-haltered"></i> ADMIN PORTAL
             </div>
         </div>
-
-        <!-- explicit admin only message (gold / navy) -->
-        {{-- <div class="role-tag">
-            <i class="fas fa-lock"></i>
-            <span><strong>Administrator access only</strong> — restricted to finance officers & senior management</span>
-        </div> --}}
 
         <!-- login form (admin) -->
         <form action="{{ route('admin.login') }}" method="POST">

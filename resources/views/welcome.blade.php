@@ -16,28 +16,33 @@
             font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
-        /* navy & gold palette */
+        /* navy & gold palette - updated for white background */
         :root {
             --navy-dark: #0a1928;
-            /* deep navy base */
+            /* deep navy - now used for text */
             --navy-medium: #132b3f;
-            /* rich navy */
+            /* rich navy - for backgrounds/accents */
             --navy-light: #1e3a5a;
             /* elegant navy accent */
             --gold-bright: #d4af37;
-            /* classic gold */
+            /* classic gold - unchanged */
             --gold-soft: #e6c473;
-            /* softer gold for hover / light bg */
+            /* softer gold */
             --gold-deep: #b88b1f;
-            /* deeper gold for contrast */
-            --white-soft: #f5f7fa;
-            --text-light: #eef2f6;
-            --text-muted: #b0c0d0;
+            /* deeper gold */
+            --white-soft: #ffffff;
+            /* pure white background */
+            --text-dark: #0a1928;
+            /* navy text for primary content */
+            --text-muted: #4a5a6e;
+            /* softer navy/gray for secondary text */
+            --bg-light: #f8fafd;
+            /* very light background for sections */
         }
 
         body {
-            background-color: var(--navy-dark);
-            color: var(--text-light);
+            background-color: var(--white-soft);
+            color: var(--text-dark);
             line-height: 1.5;
         }
 
@@ -53,7 +58,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 1.5rem 0;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.25);
             flex-wrap: wrap;
         }
 
@@ -65,11 +70,11 @@
 
         .priyal {
             color: var(--gold-bright);
-            text-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+            text-shadow: 0 0 8px rgba(212, 175, 55, 0.2);
         }
 
         .finance-txt {
-            color: var(--white-soft);
+            color: var(--navy-dark);
             font-weight: 300;
             margin-left: 0.2rem;
         }
@@ -82,7 +87,7 @@
         }
 
         .nav-links a {
-            color: var(--text-light);
+            color: var(--navy-dark);
             text-decoration: none;
             font-weight: 500;
             transition: color 0.2s;
@@ -109,7 +114,7 @@
             border-color: var(--gold-bright);
         }
 
-        /* mobile menu icon (simple) */
+        /* mobile menu icon */
         .mobile-icon {
             display: none;
             font-size: 1.8rem;
@@ -131,8 +136,8 @@
         }
 
         .hero-badge {
-            background: rgba(212, 175, 55, 0.12);
-            color: var(--gold-soft);
+            background: rgba(212, 175, 55, 0.08);
+            color: var(--navy-medium);
             display: inline-block;
             padding: 0.4rem 1.2rem;
             border-radius: 40px;
@@ -147,6 +152,7 @@
             font-weight: 700;
             line-height: 1.2;
             margin-bottom: 1.2rem;
+            color: var(--navy-dark);
         }
 
         .hero-content h1 span {
@@ -189,7 +195,6 @@
             border-color: var(--gold-deep);
             box-shadow: 0 18px 28px -10px #d4af37;
             transform: scale(1.02);
-            color: #0a0f1a;
         }
 
         .btn-outline {
@@ -207,7 +212,7 @@
         .btn-outline:hover {
             background: rgba(212, 175, 55, 0.1);
             border-color: var(--gold-soft);
-            color: var(--gold-soft);
+            color: var(--gold-deep);
         }
 
         .hero-stats {
@@ -230,27 +235,28 @@
 
         .hero-image {
             flex: 1 1 350px;
-            background: radial-gradient(circle at 70% 30%, rgba(212, 175, 55, 0.1), transparent 70%);
+            background: radial-gradient(circle at 70% 30%, rgba(212, 175, 55, 0.08), transparent 70%);
             padding: 2rem;
             display: flex;
             justify-content: center;
         }
 
         .card-preview {
-            background: rgba(19, 43, 63, 0.6);
+            background: rgba(245, 248, 250, 0.9);
             backdrop-filter: blur(6px);
-            border: 1px solid rgba(212, 175, 55, 0.5);
+            border: 1px solid rgba(212, 175, 55, 0.4);
             border-radius: 40px;
             padding: 2rem 2rem 2.2rem;
             width: 100%;
             max-width: 380px;
-            box-shadow: 0 40px 50px -25px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(212, 175, 55, 0.2) inset;
+            box-shadow: 0 40px 50px -25px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(212, 175, 55, 0.2) inset;
         }
 
         .card-preview h3 {
             font-size: 1.8rem;
             font-weight: 500;
             margin-bottom: 0.5rem;
+            color: var(--navy-dark);
         }
 
         .card-preview h3 i {
@@ -266,7 +272,8 @@
         }
 
         .loan-badge {
-            background: var(--navy-light);
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--navy-medium);
             padding: 0.5rem 1.2rem;
             border-radius: 60px;
             display: inline-block;
@@ -292,8 +299,7 @@
         /* features / services */
         .features {
             padding: 5rem 0;
-            background: rgba(10, 25, 40, 0.7);
-            /* navy overlay */
+            background: var(--bg-light);
         }
 
         .section-head {
@@ -304,6 +310,7 @@
         .section-head h2 {
             font-size: 2.6rem;
             font-weight: 600;
+            color: var(--navy-dark);
         }
 
         .section-head h2 span {
@@ -326,24 +333,24 @@
         }
 
         .feature-card {
-            background: rgba(30, 58, 90, 0.4);
-            /* navy-light with transparency */
+            background: var(--white-soft);
             backdrop-filter: blur(5px);
             border: 1px solid rgba(212, 175, 55, 0.2);
             border-radius: 32px;
             padding: 2rem 1.8rem;
             transition: 0.25s ease;
+            box-shadow: 0 8px 20px -8px rgba(10, 25, 40, 0.1);
         }
 
         .feature-card:hover {
             border-color: var(--gold-bright);
-            background: rgba(30, 58, 90, 0.7);
+            background: white;
             transform: translateY(-8px);
             box-shadow: 0 24px 36px -20px #d4af37;
         }
 
         .feature-icon {
-            background: var(--navy-medium);
+            background: var(--bg-light);
             width: 70px;
             height: 70px;
             border-radius: 20px;
@@ -359,6 +366,7 @@
         .feature-card h3 {
             font-size: 1.7rem;
             margin-bottom: 0.7rem;
+            color: var(--navy-dark);
         }
 
         .feature-card p {
@@ -366,10 +374,10 @@
             font-size: 1rem;
         }
 
-        /* application steps (gold accent) */
+        /* application steps */
         .steps {
             padding: 5rem 0;
-            background: var(--navy-medium);
+            background: white;
         }
 
         .steps-container {
@@ -380,13 +388,14 @@
         }
 
         .step-item {
-            background: var(--navy-dark);
+            background: var(--bg-light);
             border-radius: 40px;
             padding: 2rem 2rem 2.5rem;
             flex: 1 1 200px;
             border-bottom: 4px solid var(--gold-bright);
             text-align: center;
             transition: 0.2s;
+            box-shadow: 0 8px 20px -8px rgba(10, 25, 40, 0.08);
         }
 
         .step-item:hover {
@@ -396,7 +405,7 @@
 
         .step-num {
             background: var(--gold-bright);
-            color: var(--navy-dark);
+            color: white;
             width: 50px;
             height: 50px;
             border-radius: 60px;
@@ -420,7 +429,7 @@
 
         /* CTA banner */
         .cta-banner {
-            background: linear-gradient(145deg, var(--navy-light) 0%, #0b2338 100%);
+            background: linear-gradient(145deg, var(--bg-light) 0%, #ffffff 100%);
             margin: 4rem 0;
             border-radius: 70px;
             padding: 3.5rem 4rem;
@@ -429,11 +438,13 @@
             flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
+            box-shadow: 0 20px 30px -15px rgba(10, 25, 40, 0.15);
         }
 
         .cta-banner h3 {
             font-size: 2.2rem;
             font-weight: 600;
+            color: var(--navy-dark);
         }
 
         .cta-banner h3 span {
@@ -470,6 +481,10 @@
             font-weight: 600;
         }
 
+        .footer-logo .finance-txt {
+            color: var(--navy-dark);
+        }
+
         .social-links {
             display: flex;
             gap: 1.5rem;
@@ -483,7 +498,7 @@
         }
 
         .social-links i:hover {
-            color: var(--gold-soft);
+            color: var(--gold-deep);
             transform: scale(1.1);
         }
 
@@ -498,6 +513,11 @@
             color: var(--gold-bright);
         }
 
+        .footer-col h4 {
+            color: var(--gold-bright) !important;
+            margin-bottom: 1.2rem;
+        }
+
         .copyright {
             text-align: center;
             color: var(--text-muted);
@@ -506,7 +526,7 @@
         }
 
         hr {
-            border-color: rgba(212, 175, 55, 0.1);
+            border-color: rgba(212, 175, 55, 0.15);
             margin: 2rem 0;
         }
 
@@ -514,7 +534,6 @@
         @media (max-width: 900px) {
             .nav-links {
                 display: none;
-                /* keep demo simple – we show mobile icon */
             }
 
             .mobile-icon {
@@ -603,15 +622,16 @@
                         <span>processing fee</span>
                         <span>zero</span>
                     </div>
-                    <div style="margin-top: 1.5rem; color: var(--gold-soft); font-size: 0.9rem;">
-                        <i class="fas fa-check-circle"></i> in-principle approval — 5 mins
+                    <div style="margin-top: 1.5rem; color: var(--navy-medium); font-size: 0.9rem;">
+                        <i class="fas fa-check-circle" style="color: var(--gold-bright);"></i> in-principle approval — 5
+                        mins
                     </div>
                 </div>
             </div>
         </section>
     </div> <!-- end container -->
 
-    <!-- features / services (full width with navy) -->
+    <!-- features / services -->
     <section class="features">
         <div class="container">
             <div class="section-head">
@@ -643,7 +663,7 @@
         </div>
     </section>
 
-    <!-- steps in gold/navy -->
+    <!-- steps -->
     <section class="steps">
         <div class="container">
             <div class="section-head">
@@ -686,7 +706,7 @@
             <button class="btn-primary"><i class="fas fa-calendar-check"></i> claim offer</button>
         </div>
 
-        <!-- footer with navy / gold details -->
+        <!-- footer -->
         <footer class="footer">
             <div class="footer-grid">
                 <div class="footer-col">
@@ -703,21 +723,21 @@
                     </div>
                 </div>
                 <div class="footer-col">
-                    <h4 style="color: var(--gold-bright); margin-bottom: 1.2rem;">Lending</h4>
+                    <h4>Lending</h4>
                     <a href="#">Business term loan</a>
                     <a href="#">Gold backed loan</a>
                     <a href="#">Working capital</a>
                     <a href="#">Invoice financing</a>
                 </div>
                 <div class="footer-col">
-                    <h4 style="color: var(--gold-bright); margin-bottom: 1.2rem;">Company</h4>
+                    <h4>Company</h4>
                     <a href="#">About priyal</a>
                     <a href="#">Careers</a>
                     <a href="#">Press & media</a>
                     <a href="#">Contact</a>
                 </div>
                 <div class="footer-col">
-                    <h4 style="color: var(--gold-bright); margin-bottom: 1.2rem;">address</h4>
+                    <h4>address</h4>
                     <p>Navy House, Finance district<br>Mumbai · 400001<br>📞 1800-102-PRIYAL<br>hello@priyalfinance.in
                     </p>
                 </div>
@@ -728,7 +748,6 @@
             </div>
         </footer>
     </div>
-    <!-- small dummy spacer for extra elegance -->
 </body>
 
 </html>
