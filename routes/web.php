@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminAuthController;
+use App\Http\Controllers\Admin\StatementController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,5 +40,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
         Route::post('/logout', [AdminAuthController::class, 'logout'])
             ->name('logout');
+
+        Route::post('/statement/upload', [StatementController::class, 'upload'])
+            ->name('statement.upload');
     });
 });

@@ -59,39 +59,63 @@
     <!-- Main Workflow Section -->
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
         <!-- Step 1: Upload PDF -->
-        <div class="bg-white rounded-lg shadow">
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200">
+
+            <!-- Header -->
             <div class="p-6 border-b">
                 <h3 class="text-lg font-semibold flex items-center">
-                    <span
-                        class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-2">1</span>
+                    <span class="bg-blue-600 text-white rounded-full w-7 h-7 flex items-center justify-center text-sm mr-3">
+                        1
+                    </span>
                     Upload Statement PDF
                 </h3>
             </div>
-            <div class="p-6">
-                <div
-                    class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-blue-500 transition">
-                    <i class="fas fa-cloud-upload-alt text-4xl text-gray-400 mb-3"></i>
-                    <p class="text-gray-600 mb-2">Drag & drop your PDF here</p>
-                    <p class="text-sm text-gray-500 mb-4">or</p>
-                    <button class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
-                        Browse Files
-                    </button>
-                    <p class="text-xs text-gray-400 mt-3">
-                        Supported: SBI, HDFC, Kotak PDFs
-                    </p>
-                </div>
 
-                <!-- Bank Selection -->
-                <div class="mt-4">
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Select Bank (Optional)</label>
-                    <select
-                        class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <option value="">Auto-detect bank</option>
-                        <option value="sbi">State Bank of India (SBI)</option>
-                        <option value="hdfc">HDFC Bank</option>
-                        <option value="kotak">Kotak Mahindra Bank</option>
-                    </select>
-                </div>
+            <!-- Body -->
+            <div class="p-6">
+
+                <form action="{{ route('admin.statement.upload') }}" method="POST" enctype="multipart/form-data"
+                    class="space-y-6">
+                    @csrf
+
+                    <!-- Drag & Drop Area -->
+                    <label for="statementFile"
+                        class="flex flex-col items-center justify-center w-full p-10 border-2 border-dashed border-gray-300 rounded-xl cursor-pointer hover:border-blue-600 hover:bg-blue-50 transition">
+                        <i class="fas fa-cloud-upload-alt text-4xl text-gray-400 mb-4"></i>
+                        <p class="text-gray-700 font-medium">Click to upload or drag & drop</p>
+                        <p class="text-sm text-gray-500 mt-1">PDF files only</p>
+                        <p class="text-xs text-gray-400 mt-2">
+                            Supported: SBI, HDFC, Kotak
+                        </p>
+
+                        <input id="statementFile" type="file" name="statement" accept="application/pdf" required
+                            class="hidden">
+                    </label>
+
+                    <!-- Bank Selection -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Select Bank (Optional)
+                        </label>
+
+                        <select name="bank"
+                            class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                            <option value="">Auto-detect bank</option>
+                            <option value="sbi">SBI</option>
+                            <option value="hdfc">HDFC</option>
+                            <option value="kotak">Kotak</option>
+                        </select>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="text-right">
+                        <button type="submit"
+                            class="bg-blue-600 text-white px-6 py-2.5 rounded-lg hover:bg-blue-700 transition shadow-sm">
+                            Upload Statement
+                        </button>
+                    </div>
+
+                </form>
             </div>
         </div>
 
@@ -117,7 +141,8 @@
                             <label class="block text-sm font-medium text-gray-700 mb-1">
                                 Customer Name
                             </label>
-                            <input type="text" placeholder="Enter customer name"
+                            <input type="text" name="customer_name" value="{{ $data['customer_name'] ?? '' }}"
+                                placeholder="Enter customer name"
                                 class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
                         </div>
 
@@ -125,7 +150,8 @@
                             <label class="block text-sm font-medium text-gray-700 mb-1">
                                 Account Number
                             </label>
-                            <input type="text" placeholder="Enter account number"
+                            <input type="text" value="{{ $data['account_number'] ?? '' }}"
+                                placeholder="Enter account number"
                                 class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
                         </div>
 
@@ -133,7 +159,7 @@
                             <label class="block text-sm font-medium text-gray-700 mb-1">
                                 IFSC Code
                             </label>
-                            <input type="text" placeholder="Enter IFSC code"
+                            <input type="text" value="{{ $data['ifsc'] ?? '' }}" placeholder="Enter IFSC code"
                                 class="w-full border border-gray-300 rounded-lg px-3 py-2 uppercase focus:outline-none focus:ring-2 focus:ring-blue-500" />
                         </div>
                     </div>
@@ -150,6 +176,9 @@
                                 Begin Date
                             </label>
                             <input type="date"
+                                value="{{ isset($data['start_date'])
+                                    ? \Carbon\Carbon::createFromFormat('d-m-Y', $data['start_date'])->format('Y-m-d')
+                                    : '' }}"
                                 class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
                         </div>
 
@@ -159,6 +188,9 @@
                                 End Date
                             </label>
                             <input type="date"
+                                value="{{ isset($data['end_date']) && $data['end_date']
+                                    ? \Carbon\Carbon::createFromFormat('d-m-Y', $data['end_date'])->format('Y-m-d')
+                                    : '' }}"
                                 class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
                         </div>
                     </div>
@@ -205,7 +237,8 @@
                 <!-- Recurring Option -->
                 <div class="flex items-center justify-between bg-gray-50 p-3 rounded-lg mb-4">
                     <div class="flex items-center">
-                        <input type="checkbox" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" />
+                        <input type="checkbox"
+                            class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" />
                         <label class="ml-2 text-sm text-gray-700">Make this a recurring monthly entry</label>
                     </div>
                     <select class="text-sm border border-gray-300 rounded px-2 py-1" disabled>
