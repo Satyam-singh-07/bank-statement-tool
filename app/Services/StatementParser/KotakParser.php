@@ -24,7 +24,7 @@ class KotakParser
         $data['start_date'] = $period[1] ?? '';
         $data['end_date']   = $period[2] ?? '';
 
-        // 🔥 Extract Name (line after IFSC Code)
+        // Extract Name (line after IFSC Code)
         foreach ($lines as $index => $line) {
             if (stripos($line, 'IFSC Code') !== false) {
                 $nextLine = trim($lines[$index + 1] ?? '');
